@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div style="color: blue">
+    <h1>{{title}}</h1>
+  </div>
+
+  <div class="jumbotron">
+    <form [formGroup]="form" (ngSubmit) = "onSubmit(form.value)">
+      <div hidden>
+        <input type="text" class="form-control form-control-sm" placeholder="key" id="key" required formControlName="key"
+               name="key">
+      </div>
+      <div class="form-group">
+        <label for="taskname">Taskname</label>
+        <input type="text" class="form-control form-control-sm" placeholder="taskname" id="taskname" required formControlName="taskname"
+               name="taskname">
+      </div>
+      <div class="form-group">
+        <label for="action">Action</label>
+        <input type="text" class="form-control form-control-sm" placeholder="action" id="action" required formControlName="action"
+               name="action">
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select name="status" formControlName="status" id="status" class="form-control form-control-sm">
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+          <option value="failed">Failed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="duedate">Due Date</label>
+        <input type="date" class="form-control form-control-sm" placeholder="duedata" id="duedate" required formControlName="duedate"
+               name="duedate">
+      </div>
+      <div class="form-group">
+        <label for="startdate">Start Date</label>
+        <input type="date" class="form-control form-control-sm" placeholder="startdate" id="startdate" required formControlName="startdate"
+               name="startdate">
+      </div>
+
+      <div class="mce-btn-group">
+        <button type="submit" class="btn btn-primary btn-small" [disabled]="!form.valid" value="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
